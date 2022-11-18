@@ -1,21 +1,14 @@
+
 function solution(a, b) {
     let answer = 0;
-    let lowNum = 0;
-    let bigNum = 0;
     if (a >= b) {
-        lowNum = b;
-        bigNum = a;
+        for (let i = b; i <= a; i++) {
+            answer += i
+        }
     } else {
-        lowNum = a;
-        bigNum = b;
+        for (let i = a; i <= b; i++) {
+            answer += i
+        }
     }
-    let numArr = [];
-    for (let i = lowNum; i <= bigNum; i++) {
-        numArr.push(i);
-    }
-    for (let i = 0; i < numArr.length; i++) {
-        answer += numArr[i];
-    }
-
     return answer;
 }
