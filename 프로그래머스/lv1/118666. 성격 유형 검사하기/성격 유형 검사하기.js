@@ -8,19 +8,24 @@ function solution(survey, choices) {
     }
 
     for (let i = 0; i < choices.length; i++) {
-        const [leftType, rightType] = survey[i].split('');
+        const [left, right] = survey[i].split('');
         const result = Math.abs(choices[i] - 4);
         if (choices[i] < 4) {
-            types[leftType] += result;
+            types[left] += result;
         } else if (choices[i] > 4) {
-            types[rightType] += result;
+            types[right] += result;
         }
     }
-    const type = Object.keys(types);
+
+    const type = []
+    for (let data in types) {
+        type.push(data);
+    }
+
     for (let i = 0; i < type.length; i += 2) {
-        const leftType = types[type[i]];
-        const rightType = types[type[i + 1]];
-        if (leftType >= rightType) {
+        const left = types[type[i]];
+        const right = types[type[i + 1]];
+        if (left >= right) {
             answer += type[i];
         } else {
             answer += type[i + 1];
